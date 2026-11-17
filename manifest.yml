@@ -1,0 +1,35 @@
+modules:
+  jira:adminPage:
+    - key: workflow-gap-companion-hello-world-admin-page
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: workflow-gap-companion
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+translations:
+  resources:
+    - key: en-US
+      path: static/locales/en.json
+    - key: es-ES
+      path: static/locales/es.json
+  fallback:
+    default: en-US
+permissions:
+  scopes:
+    # read:workflow:jira es el scope granular "Beta" para GET /rest/api/3/workflows/search -- confirmado
+    # en vivo que Forge lo acepta hoy, sin necesidad del scope clasico mas amplio manage:jira-configuration.
+    - read:workflow:jira
+    # read:jira-work es el scope CLASICO (no beta) para GET /rest/api/3/status -- confirmado que funciona.
+    - read:jira-work
+app:
+  runtime:
+    name: nodejs24.x
+    memoryMB: 256
+    architecture: arm64
+  id: ari:cloud:ecosystem::app/59e71fd2-d601-469e-bc5c-72d4d96dcd8d
