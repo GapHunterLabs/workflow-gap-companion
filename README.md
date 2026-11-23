@@ -20,9 +20,10 @@ Jira workflow has exactly the same shape as a graph.
 - **States with no outgoing transition**, unless they are a
   Done-category state or already covered by a global transition: a
   genuine dead end.
-- **Closed cycles**: two or more states that only transition among
-  themselves, with no path to any Done-category state, so an issue can
-  loop forever without a way to close.
+- **Trapped states**: states that have a way out but never reach any
+  Done-category state, such as a closed cycle (even a single state that
+  only transitions to itself), so an issue can loop forever without a
+  way to close.
 
 Every workflow with a problem gets a direct link to its editor. The
 full report exports to JSON or CSV.
