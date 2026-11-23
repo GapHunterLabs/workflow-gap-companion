@@ -1,11 +1,11 @@
 modules:
   jira:adminPage:
-    - key: workflow-gap-companion-hello-world-admin-page
+    - key: workflow-gap-companion-admin-page
       resource: main
       resolver:
         function: resolver
       render: native
-      title: workflow-gap-companion
+      title: Workflow Gap Companion
   function:
     - key: resolver
       handler: index.handler
